@@ -194,7 +194,7 @@ footer {display: none;
   .wide-view {
     height: 100vh;
     width: calc(100vw - 42.4vw);
-    padding-left: 8.2vw;
+    padding-left: 9.6vw;
     flex-wrap: wrap;
   }
 
