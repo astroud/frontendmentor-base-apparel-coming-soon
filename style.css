@@ -20,6 +20,7 @@ body {
   justify-content: center;
   flex-wrap: wrap;
   background: linear-gradient(150.03deg, #FFFFFF 0%, #FFF4F4 84.51%);
+  min-height: 100vh;
 }
 
 
@@ -100,32 +101,36 @@ form {
 }
 
 input {
-  mix-blend-mode: normal;
-  opacity: 0.5;
   border: 1px solid var(--desaturated-red);
   box-sizing: border-box;
   border-radius: 28px;
-  background: transparent;
+  background: #FFF2F2;
 
   width: 92%;
   height: 48px;
   padding: 4px 24px 0 23px;
-  margin-bottom: 100px;
+  margin-bottom: 8px;
 
   font-family: 'Josefin Sans';
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
   line-height: 28px;
-  color: var(--dark-grayish-red);
-  mix-blend-mode: normal;
-  
+  color: #423A3A;
 }
 
 input::placeholder {
+  mix-blend-mode: normal;
+  opacity: 0.5;
   color: var(--desaturated-red);
 }
 
+input:invalid {
+  border: 2px solid #F96464;
+  background-image: url(./images/icon-error.svg);
+  background-position: center right 50px;
+  background-repeat: no-repeat;
+}
 
 button {
   position: absolute;
@@ -141,6 +146,16 @@ button {
 button svg {
   margin-top: 5px;
   margin-left: 1px;
+}
+
+span.error-message {
+  visibility: hidden;
+  padding-left: 23px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 13px;
+  color: var(--soft-red);
 }
 
 footer {display: none;
@@ -250,6 +265,11 @@ footer {display: none;
     height: 56px;
     font-size: 16px;
     padding-left: 32px;
+    background: #FEF5F5;
+  }
+
+  input:invalid {
+    background-position: center right 70px;
   }
 
   button {

@@ -26,11 +26,12 @@
 
         <p>Hello fellow shoppers! We're currently building our new fashion store. Add your email below to stay up-to-date with announcements and our launch deals.</p>
       
-        <form action="">
-          <input type="email" name="" id="" placeholder="Email Address" required>
+        <form action="#">
+          <input name="" id="email" placeholder="Email Address" title="Please provid a valid email" pattern="^([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22))*\x40([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d))*(\.\w{2,})+$"  novalidate="true" autofocus>
           <button type="submit">
             <svg xmlns="http://www.w3.org/2000/svg" width="12" height="20"><path fill="none" stroke="#FFF" stroke-width="2" d="M1 1l8.836 8.836L1 18.671"/></svg>
           </button>
+          <span class="error-message">Please provide a valid email</span>
         </form>
       </div>
     </div>
@@ -41,5 +42,27 @@
   <footer class="attribution">
     <p>Challenge by <a href="https://www.frontendmentor.io?ref=astroud" target="_blank">Frontend Mentor</a>. Coded by <a href="https://aaronstroud.com">Aaron Stroud</a>.</p>
   </footer>
+
+  <script>
+    const form = document.querySelector('form');
+    const button = document.querySelector('button');
+    const email = document.querySelector('input#email');
+    const errMsg = document.querySelector('span.error-message');
+
+    form.addEventListener('submit', (e) => {
+      if (email.value === '' || !email.validity.valid) {
+        errMsg.style.visibility = 'visible';
+      } else {
+        form.innerHTML = `<p style="font-size: 30px; color: #322C2C; ">Subscribed!</p>`;
+      }
+    });
+
+    document.addEventListener('blur', function (event) {
+      if (!email.validity.valid || email.value === '') {
+        errMsg.style.visibility = 'visible';
+      }
+    }, true);
+
+  </script>
 </body>
 </html>
